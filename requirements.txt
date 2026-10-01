@@ -4,3 +4,4 @@ flask-pymongo==3.0.1
 python-dotenv==1.2.3
 bcrypt==5.0.0
 dnspython==2.8.0
+gunicorn
