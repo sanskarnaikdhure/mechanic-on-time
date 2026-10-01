@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Mechanic on Time</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">🔧 <span>Mechanic</span> on Time</div>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/services">Services</a>
+            <a href="/booking">Book Mechanic</a>
+            <a href="/contact">Contact</a>
+            <a href="/login" class="login-btn">Login</a>
+        </nav>
+    </header>
+
+    <section class="booking-page-hero">
+        <div class="booking-hero-content">
+            <h1>Contact <span>Us</span></h1>
+            <p>We're here to help with all your vehicle service needs. Reach out to us anytime.</p>
+        </div>
+    </section>
+
+    <section class="booking-page">
+        <div class="booking-wrapper">
+
+            <div class="booking-info">
+                <p class="form-label">GET IN TOUCH</p>
+                <h2>We're Here to Help</h2>
+                <p class="booking-description">
+                    Have a question about our services or need assistance?
+                    Fill out the form and our team will get back to you as soon as possible.
+                </p>
+
+                <div class="booking-feature">
+                    <div class="feature-icon">📞</div>
+                    <div>
+                        <h3>Call Us</h3>
+                        <p>+91 98765 43210</p>
+                    </div>
+                </div>
+
+                <div class="booking-feature">
+                    <div class="feature-icon">📧</div>
+                    <div>
+                        <h3>Email Us</h3>
+                        <p>support@mechanicontime.com</p>
+                    </div>
+                </div>
+
+                <div class="booking-feature">
+                    <div class="feature-icon">🕒</div>
+                    <div>
+                        <h3>Working Hours</h3>
+                        <p>Mon - Sun: 8:00 AM - 9:00 PM</p>
+                    </div>
+                </div>
+
+                <div class="booking-feature">
+                    <div class="feature-icon">📍</div>
+                    <div>
+                        <h3>Service Area</h3>
+                        <p>Available at your location across the city</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="booking-form-card">
+                <div class="form-heading">
+                    <h2>Send Us a Message</h2>
+                    <p>We'll respond within 24 hours.</p>
+                </div>
+
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div style="padding: 12px 16px; border-radius: 8px; margin-bottom: 20px; background: {% if category == 'success' %}#dcfce7; color: #166534{% else %}#fee2e2; color: #991b1b{% endif %};">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+
+                <form action="/contact" method="POST">
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="Enter phone number" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" placeholder="What is this about?" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="booking-submit">✉️ Send Message</button>
+
+                    <p class="form-note">
+                        Your information is safe with us. We'll never share your details.
+                    </p>
+
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo">🔧 Mechanic <span>on Time</span></div>
+        <p>Reliable vehicle service whenever you need it.</p>
+        <p class="copyright">© 2026 Mechanic on Time. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

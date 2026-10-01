@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Book a Mechanic | Mechanic on Time</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            🔧 Mechanic <span>on Time</span>
+        </div>
+
+        <nav>
+
+            <a href="/">Home</a>
+
+            <a href="/services">Services</a>
+
+            <a href="/booking">Book Mechanic</a>
+
+            <a href="/contact">Contact</a>
+
+            {% if session.get('user') %}
+
+                <a href="/dashboard">
+                    Dashboard
+                </a>
+
+                <a href="/logout" class="login-btn">
+                    Logout
+                </a>
+
+            {% else %}
+
+                <a href="/login" class="login-btn">
+                    Login
+                </a>
+
+            {% endif %}
+
+        </nav>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="booking-page-hero">
+
+        <div class="booking-hero-content">
+
+            <p class="small-title">
+                PROFESSIONAL VEHICLE SERVICE
+            </p>
+
+            <h1>
+                Book a <span>Mechanic</span>
+            </h1>
+
+            <p>
+                Get a professional mechanic at your doorstep.
+                Choose your service, date and preferred time.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= BOOKING SECTION ================= -->
+
+    <section class="booking-page">
+
+        <div class="booking-wrapper">
+
+
+            <!-- ================= LEFT SIDE ================= -->
+
+            <div class="booking-info">
+
+                <p class="form-label">
+                    QUICK & EASY BOOKING
+                </p>
+
+                <h2>
+                    Schedule Your Mechanic
+                </h2>
+
+                <p class="booking-description">
+
+                    Tell us about your vehicle and the service
+                    you need. Our professional mechanic will
+                    reach your location at the selected time.
+
+                </p>
+
+                <div class="booking-info-image-wrapper">
+                    <img
+                        src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Friendly%20professional%20mechanic%20with%20tools%20standing%20next%20to%20car%2C%20smiling%2C%20automotive%20service&image_size=landscape_4_3"
+                        alt="Professional mechanic ready for service"
+                        class="booking-info-image"
+                    >
+                </div>
+
+
+                <!-- FEATURE 1 -->
+
+                <div class="booking-feature">
+
+                    <div class="feature-icon">
+                        ⚡
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Fast Response
+                        </h3>
+
+                        <p>
+                            Get quick assistance from our
+                            professional service team.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FEATURE 2 -->
+
+                <div class="booking-feature">
+
+                    <div class="feature-icon">
+                        🛠️
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Expert Mechanics
+                        </h3>
+
+                        <p>
+                            Experienced mechanics for reliable
+                            vehicle repair and maintenance.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FEATURE 3 -->
+
+                <div class="booking-feature">
+
+                    <div class="feature-icon">
+                        📍
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Doorstep Service
+                        </h3>
+
+                        <p>
+                            Get your vehicle serviced at your
+                            home, office or preferred location.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FEATURE 4 -->
+
+                <div class="booking-feature">
+
+                    <div class="feature-icon">
+                        🛡️
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Reliable Service
+                        </h3>
+
+                        <p>
+                            Transparent service and professional
+                            support for your vehicle.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= FORM ================= -->
+
+            <div class="booking-form-card">
+
+                <div class="form-heading">
+
+                    <h2>
+                        Book Your Service
+                    </h2>
+
+                    <p>
+                        Fill in the details below to request
+                        a mechanic.
+                    </p>
+
+                </div>
+
+
+                <form action="/booking" method="POST">
+
+
+                    <!-- NAME + PHONE -->
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label for="name">
+                                Full Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="Enter your full name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="phone">
+                                Phone Number
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="phone"
+                                name="phone"
+                                placeholder="Enter phone number"
+                                pattern="[0-9]{10}"
+                                maxlength="10"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- EMAIL -->
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- VEHICLE + NUMBER -->
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label for="vehicle">
+                                Vehicle Type
+                            </label>
+
+                            <select
+                                id="vehicle"
+                                name="vehicle"
+                                required
+                            >
+
+                                <option value="">
+                                    Select vehicle type
+                                </option>
+
+                                <option value="Car">
+                                    🚗 Car
+                                </option>
+
+                                <option value="Bike">
+                                    🏍️ Bike
+                                </option>
+
+                                <option value="Scooter">
+                                    🛵 Scooter
+                                </option>
+
+                                <option value="Other">
+                                    Other
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="vehicle_number">
+                                Vehicle Number
+                            </label>
+
+                            <input
+                                type="text"
+                                id="vehicle_number"
+                                name="vehicle_number"
+                                placeholder="MH01AB1234"
+                                maxlength="15"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SERVICE -->
+
+                    <div class="form-group">
+
+                        <label for="service">
+                            Select Service
+                        </label>
+
+                        <select
+                            id="service"
+                            name="service"
+                            required
+                        >
+
+                            <option value="">
+                                Select required service
+                            </option>
+
+                            <option value="General Repair">
+                                🔧 General Repair
+                            </option>
+
+                            <option value="Engine Repair">
+                                ⚙️ Engine Repair
+                            </option>
+
+                            <option value="Battery Service">
+                                🔋 Battery Service
+                            </option>
+
+                            <option value="Tyre Service">
+                                🛞 Tyre Service
+                            </option>
+
+                            <option value="Oil Change">
+                                🛢️ Oil Change
+                            </option>
+
+                            <option value="Brake Service">
+                                🚗 Brake Service
+                            </option>
+
+                            <option value="Emergency Repair">
+                                🚨 Emergency Repair
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- LOCATION -->
+
+                    <div class="form-group">
+
+                        <label for="location">
+                            Service Location
+                        </label>
+
+                        <input
+                            type="text"
+                            id="location"
+                            name="location"
+                            placeholder="Enter your service location"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- DATE + TIME -->
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label for="date">
+                                Preferred Date
+                            </label>
+
+                            <input
+                                type="date"
+                                id="date"
+                                name="date"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="time">
+                                Preferred Time
+                            </label>
+
+                            <input
+                                type="time"
+                                id="time"
+                                name="time"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PROBLEM -->
+
+                    <div class="form-group">
+
+                        <label for="problem">
+                            Vehicle Problem
+                        </label>
+
+                        <textarea
+                            id="problem"
+                            name="problem"
+                            placeholder="Describe your vehicle problem..."
+                        ></textarea>
+
+                    </div>
+
+
+                    <!-- BUTTONS -->
+
+                    <div class="booking-buttons">
+
+                        <button
+                            type="submit"
+                            class="booking-submit">
+
+                            🔧 Book Mechanic
+
+                        </button>
+
+
+                        <button
+                            type="reset"
+                            class="booking-cancel">
+
+                            ✕ Cancel
+
+                        </button>
+
+                    </div>
+
+
+                    <p class="form-note">
+
+                        🔒 Your information is kept secure and
+                        is used only to process your service request.
+
+                    </p>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-logo">
+            🔧 Mechanic <span>on Time</span>
+        </div>
+
+        <p>
+            Professional vehicle service at your doorstep.
+        </p>
+
+        <p class="copyright">
+            © 2026 Mechanic on Time. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        // Set minimum booking date to today
+
+        const dateInput = document.getElementById("date");
+
+        const today = new Date();
+
+        const year = today.getFullYear();
+
+        const month = String(today.getMonth() + 1).padStart(2, "0");
+
+        const day = String(today.getDate()).padStart(2, "0");
+
+        dateInput.min = `${year}-${month}-${day}`;
+
+
+        // Confirmation before booking
+
+        const bookingForm = document.querySelector("form");
+
+        bookingForm.addEventListener("submit", function(event) {
+
+            const confirmed = confirm(
+                "Are you sure you want to book this mechanic service?"
+            );
+
+            if (!confirmed) {
+                event.preventDefault();
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>

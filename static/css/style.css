@@ -1,0 +1,1583 @@
+
+/* =========================================================
+   MECHANIC ON TIME
+   PROFESSIONAL WEBSITE CSS
+========================================================= */
+
+
+/* =========================================================
+   1. BASIC RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f8fafc;
+    color: #111827;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+}
+
+
+/* =========================================================
+   2. NAVBAR
+========================================================= */
+
+.navbar {
+    width: 100%;
+    min-height: 78px;
+
+    padding: 0 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #111827;
+
+    position: relative;
+    z-index: 1000;
+
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Logo */
+
+.logo {
+    color: #ffffff;
+
+    font-size: 25px;
+
+    font-weight: 800;
+
+    white-space: nowrap;
+}
+
+.logo span {
+    color: #f97316;
+}
+
+
+/* Navigation */
+
+.navbar nav {
+    display: flex;
+
+    align-items: center;
+
+    gap: 28px;
+}
+
+.navbar nav a {
+    color: #ffffff;
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+    transition: 0.3s ease;
+}
+
+.navbar nav a:hover {
+    color: #f97316;
+}
+
+
+/* Login Button */
+
+.login-btn {
+    padding: 11px 22px;
+
+    background: #f97316;
+
+    color: #ffffff !important;
+
+    border-radius: 7px;
+
+    font-weight: 600 !important;
+
+    transition: 0.3s ease;
+}
+
+.login-btn:hover {
+    background: #ea580c;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   3. HOME HERO SECTION
+========================================================= */
+
+.hero {
+    min-height: 650px;
+
+    padding: 90px 7%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 40px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(17, 24, 39, 0.96),
+            rgba(17, 24, 39, 0.85)
+        ),
+        url("https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Modern%20auto%20repair%20workshop%20with%20tools%20and%20equipment%2C%20professional%20garage%20interior%2C%20warm%20lighting&image_size=landscape_16_9");
+
+    background-size: cover;
+
+    background-position: center;
+
+    color: #ffffff;
+}
+
+.hero-image-wrapper {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 480px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+    border: 3px solid rgba(255, 255, 255, 0.15);
+}
+
+.hero-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+
+/* Hero Content */
+
+.hero-content {
+    max-width: 650px;
+}
+
+
+/* Small Title */
+
+.small-title {
+    display: inline-block;
+
+    padding: 8px 15px;
+
+    margin-bottom: 22px;
+
+    border-radius: 30px;
+
+    background: rgba(249, 115, 22, 0.15);
+
+    border: 1px solid rgba(249, 115, 22, 0.35);
+
+    color: #fb923c;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+/* Hero Heading */
+
+.hero h1 {
+    font-size: 60px;
+
+    line-height: 1.08;
+
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    color: #f97316;
+}
+
+
+/* Hero Paragraph */
+
+.hero-text {
+    max-width: 600px;
+
+    color: #e5e7eb;
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+    margin-bottom: 35px;
+}
+
+
+/* =========================================================
+   4. HERO BUTTONS
+========================================================= */
+
+.hero-buttons {
+    display: flex;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+.primary-btn,
+.secondary-btn {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 15px 26px;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    transition: 0.3s ease;
+}
+
+
+/* Primary */
+
+.primary-btn {
+    background: #f97316;
+
+    color: #ffffff;
+}
+
+.primary-btn:hover {
+    background: #ea580c;
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 10px 25px rgba(249, 115, 22, 0.25);
+}
+
+
+/* Secondary */
+
+.secondary-btn {
+    color: #ffffff;
+
+    border: 1px solid rgba(255, 255, 255, 0.4);
+
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.secondary-btn:hover {
+    background: #ffffff;
+
+    color: #111827;
+}
+
+
+/* =========================================================
+   5. HERO CARD
+========================================================= */
+
+.hero-card {
+    width: 360px;
+
+    padding: 42px 32px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.10);
+
+    border: 1px solid rgba(255, 255, 255, 0.20);
+
+    border-radius: 20px;
+
+    backdrop-filter: blur(15px);
+}
+
+.card-icon {
+    width: 75px;
+
+    height: 75px;
+
+    margin: 0 auto 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(249, 115, 22, 0.20);
+
+    font-size: 38px;
+}
+
+.hero-card h2 {
+    color: #ffffff;
+
+    font-size: 28px;
+
+    margin-bottom: 13px;
+}
+
+.hero-card p {
+    color: #d1d5db;
+
+    line-height: 1.7;
+
+    margin-bottom: 25px;
+}
+
+
+/* Status */
+
+.service-status {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 10px 16px;
+
+    border-radius: 30px;
+
+    background: rgba(34, 197, 94, 0.12);
+
+    color: #86efac;
+
+    font-size: 13px;
+}
+
+.status-dot {
+    width: 9px;
+
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: #22c55e;
+}
+
+
+/* =========================================================
+   6. COMMON SECTION
+========================================================= */
+
+.section-heading {
+    max-width: 750px;
+
+    margin: 0 auto 55px;
+
+    text-align: center;
+}
+
+.section-heading p {
+    color: #f97316;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 12px;
+}
+
+.section-heading h2 {
+    color: #111827;
+
+    font-size: 40px;
+
+    line-height: 1.2;
+
+    margin-bottom: 15px;
+}
+
+.section-heading span {
+    color: #6b7280;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   7. SERVICES
+========================================================= */
+
+.services,
+.services-page {
+    padding: 95px 7%;
+
+    background: #ffffff;
+}
+
+.services-page {
+    background: #f8fafc;
+}
+
+.service-container {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 24px;
+}
+
+
+/* Service Card */
+
+.service-card {
+    padding: 32px 25px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 15px;
+
+    transition: 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+
+    background: #ffffff;
+
+    border-color: #fed7aa;
+
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
+}
+
+
+/* Service Icon */
+
+.service-icon {
+    width: 62px;
+
+    height: 62px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 13px;
+
+    background: #fff7ed;
+
+    font-size: 28px;
+
+    margin-bottom: 20px;
+
+    transition: 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+    background: #f97316;
+
+    transform: scale(1.08);
+}
+
+
+/* Service Text */
+
+.service-card h3 {
+    color: #111827;
+
+    font-size: 20px;
+
+    margin-bottom: 12px;
+}
+
+.service-card p {
+    color: #6b7280;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+.service-btn {
+    display: inline-block;
+
+    margin-top: 20px;
+
+    color: #f97316;
+
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+.service-btn:hover {
+    color: #ea580c;
+}
+
+
+/* =========================================================
+   8. WHY CHOOSE US
+========================================================= */
+
+.why-us {
+    padding: 95px 7%;
+
+    background: #f8fafc;
+}
+
+.why-container {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 24px;
+}
+
+.why-card {
+    padding: 35px 25px;
+
+    text-align: center;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 15px;
+
+    transition: 0.3s ease;
+}
+
+.why-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.07);
+}
+
+.why-icon {
+    width: 65px;
+
+    height: 65px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #fff7ed;
+
+    font-size: 28px;
+}
+
+.why-card h3 {
+    color: #111827;
+
+    margin-bottom: 12px;
+}
+
+.why-card p {
+    color: #6b7280;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   9. BOOKING CTA
+========================================================= */
+
+.booking-section {
+    padding: 90px 7%;
+
+    text-align: center;
+
+    background: #111827;
+
+    color: #ffffff;
+}
+
+.booking-content {
+    max-width: 750px;
+
+    margin: auto;
+}
+
+.booking-content > p {
+    color: #fb923c;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 15px;
+}
+
+.booking-content h2 {
+    font-size: 42px;
+
+    line-height: 1.2;
+
+    margin-bottom: 15px;
+}
+
+.booking-content span {
+    display: block;
+
+    color: #d1d5db;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================================================
+   10. PAGE HERO
+========================================================= */
+
+.services-page-hero,
+.booking-page-hero {
+    min-height: 390px;
+
+    padding: 80px 7%;
+
+    display: flex;
+
+    align-items: center;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(17, 24, 39, 0.95),
+            rgba(17, 24, 39, 0.75)
+        ),
+        url("https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20automotive%20service%20center%20with%20vehicle%20lifts%20and%20tools%2C%20modern%20garage%2C%20cinematic%20lighting&image_size=landscape_16_9");
+
+    background-size: cover;
+
+    background-position: center;
+
+    color: #ffffff;
+}
+
+.booking-info-image-wrapper {
+    margin-bottom: 35px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.10);
+    border: 1px solid #e5e7eb;
+}
+
+.booking-info-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.services-page-hero > div,
+.booking-hero-content {
+    max-width: 700px;
+}
+
+.services-page-hero h1,
+.booking-hero-content h1 {
+    font-size: 55px;
+
+    line-height: 1.1;
+
+    margin-bottom: 20px;
+}
+
+.services-page-hero h1 span,
+.booking-hero-content h1 span {
+    color: #f97316;
+}
+
+.services-page-hero p:last-child,
+.booking-hero-content p:last-child {
+    max-width: 650px;
+
+    color: #d1d5db;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   11. BOOKING PAGE
+========================================================= */
+
+.booking-page {
+    padding: 90px 7%;
+
+    background: #f8fafc;
+}
+
+.booking-wrapper {
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 0.85fr 1.15fr;
+
+    gap: 60px;
+
+    align-items: start;
+}
+
+
+/* Booking Information */
+
+.booking-info {
+    padding-top: 20px;
+}
+
+.form-label {
+    color: #f97316;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 15px;
+}
+
+.booking-info h2 {
+    color: #111827;
+
+    font-size: 42px;
+
+    line-height: 1.2;
+
+    margin-bottom: 20px;
+}
+
+.booking-description {
+    color: #6b7280;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+
+    margin-bottom: 35px;
+}
+
+
+/* Booking Features */
+
+.booking-feature {
+    display: flex;
+
+    gap: 17px;
+
+    margin-bottom: 25px;
+}
+
+.feature-icon {
+    flex-shrink: 0;
+
+    width: 55px;
+
+    height: 55px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: #fff7ed;
+
+    font-size: 24px;
+}
+
+.booking-feature h3 {
+    color: #111827;
+
+    font-size: 17px;
+
+    margin-bottom: 6px;
+}
+
+.booking-feature p {
+    color: #6b7280;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   12. BOOKING FORM
+========================================================= */
+
+.booking-form-card {
+    padding: 40px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 18px;
+
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+}
+
+.form-heading {
+    margin-bottom: 30px;
+}
+
+.form-heading h2 {
+    color: #111827;
+
+    font-size: 28px;
+
+    margin-bottom: 8px;
+}
+
+.form-heading p {
+    color: #6b7280;
+
+    font-size: 14px;
+}
+
+
+/* Form Group */
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+
+/* Two Columns */
+
+.form-row {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 18px;
+}
+
+
+/* Labels */
+
+.form-group label {
+    display: block;
+
+    color: #374151;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    margin-bottom: 8px;
+}
+
+
+/* Inputs */
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    color: #111827;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition: 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #f97316;
+
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.10);
+}
+
+.form-group textarea {
+    min-height: 120px;
+
+    resize: vertical;
+}
+
+
+/* Submit Button */
+
+.booking-submit {
+    width: 100%;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #f97316;
+
+    color: #ffffff;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.booking-submit:hover {
+    background: #ea580c;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 10px 25px rgba(249, 115, 22, 0.20);
+}
+
+.booking-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.booking-cancel {
+    flex: 1;
+    padding: 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #374151;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.booking-cancel:hover {
+    background: #f3f4f6;
+    transform: translateY(-2px);
+}
+
+
+/* Form Note */
+
+.form-note {
+    margin-top: 15px;
+
+    color: #9ca3af;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   13. CONTACT PAGE
+========================================================= */
+
+.contact-section {
+    padding: 95px 7%;
+
+    background: #ffffff;
+}
+
+.contact-container {
+    max-width: 1000px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.contact-card {
+    padding: 35px 25px;
+
+    text-align: center;
+
+    background: #f8fafc;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 15px;
+
+    transition: 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.07);
+}
+
+.contact-icon {
+    width: 65px;
+
+    height: 65px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #fff7ed;
+
+    font-size: 28px;
+}
+
+.contact-card h3 {
+    color: #111827;
+
+    margin-bottom: 10px;
+}
+
+.contact-card p {
+    color: #6b7280;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   14. LOGIN / REGISTER
+========================================================= */
+
+.auth-page {
+    min-height: calc(100vh - 78px);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 60px 20px;
+
+    background: #f8fafc;
+}
+
+.auth-container {
+    width: 100%;
+
+    max-width: 450px;
+
+    padding: 40px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 18px;
+
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+}
+
+.auth-container h1 {
+    text-align: center;
+
+    color: #111827;
+
+    margin-bottom: 10px;
+}
+
+.auth-container > p {
+    text-align: center;
+
+    color: #6b7280;
+
+    margin-bottom: 30px;
+}
+
+.auth-button {
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #f97316;
+
+    color: #ffffff;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.auth-button:hover {
+    background: #ea580c;
+}
+
+.auth-link {
+    margin-top: 20px;
+
+    text-align: center;
+
+    color: #6b7280;
+
+    font-size: 14px;
+}
+
+.auth-link a {
+    color: #f97316;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   15. DASHBOARD
+========================================================= */
+
+.dashboard {
+    padding: 70px 7%;
+
+    min-height: calc(100vh - 78px);
+
+    background: #f8fafc;
+}
+
+.dashboard-header {
+    margin-bottom: 35px;
+}
+
+.dashboard-header h1 {
+    color: #111827;
+
+    font-size: 38px;
+
+    margin-bottom: 8px;
+}
+
+.dashboard-header p {
+    color: #6b7280;
+}
+
+.dashboard-cards {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.dashboard-card {
+    padding: 30px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 15px;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.dashboard-card h3 {
+    margin-bottom: 10px;
+}
+
+.dashboard-card p {
+    color: #6b7280;
+}
+
+
+/* =========================================================
+   16. FOOTER
+========================================================= */
+
+footer {
+    padding: 50px 7%;
+
+    background: #111827;
+
+    text-align: center;
+
+    color: #ffffff;
+}
+
+.footer-logo {
+    font-size: 25px;
+
+    font-weight: 800;
+
+    margin-bottom: 12px;
+}
+
+footer p {
+    color: #9ca3af;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+footer .copyright {
+    margin-top: 25px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #374151;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   17. TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .navbar {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .hero {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .hero h1 {
+        font-size: 52px;
+    }
+
+    .hero-image-wrapper {
+        max-width: 380px;
+    }
+
+    .service-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .why-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* =========================================================
+   18. MOBILE / TABLET
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .navbar {
+        padding: 20px 5%;
+
+        flex-direction: column;
+
+        gap: 18px;
+    }
+
+    .navbar nav {
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 15px;
+    }
+
+    .hero {
+        padding: 70px 5%;
+
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    .hero-content {
+        max-width: 700px;
+    }
+
+    .hero-text {
+        margin-left: auto;
+
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-card {
+        width: 100%;
+
+        max-width: 380px;
+    }
+
+    .hero-image-wrapper {
+        max-width: 100%;
+        order: -1;
+    }
+
+    .booking-wrapper {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+    }
+
+    .booking-info {
+        text-align: center;
+    }
+
+    .booking-feature {
+        text-align: left;
+    }
+
+    .booking-buttons {
+        flex-direction: column;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================================================
+   19. MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 18px 20px;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+    .navbar nav {
+        gap: 10px;
+    }
+
+    .navbar nav a {
+        font-size: 13px;
+    }
+
+    .login-btn {
+        padding: 9px 15px;
+    }
+
+
+    /* Hero */
+
+    .hero {
+        min-height: auto;
+
+        padding: 65px 20px;
+    }
+
+    .hero h1 {
+        font-size: 39px;
+    }
+
+    .hero-text {
+        font-size: 16px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+
+        width: 100%;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+        width: 100%;
+    }
+
+
+    /* Sections */
+
+    .services,
+    .services-page,
+    .why-us,
+    .contact-section,
+    .booking-page {
+        padding: 65px 20px;
+    }
+
+    .section-heading {
+        margin-bottom: 40px;
+    }
+
+    .section-heading h2 {
+        font-size: 30px;
+    }
+
+
+    /* Services */
+
+    .service-container {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* Why */
+
+    .why-container {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* Page Hero */
+
+    .services-page-hero,
+    .booking-page-hero {
+        min-height: 350px;
+
+        padding: 60px 20px;
+    }
+
+    .services-page-hero h1,
+    .booking-hero-content h1 {
+        font-size: 38px;
+    }
+
+    .services-page-hero p:last-child,
+    .booking-hero-content p:last-child {
+        font-size: 15px;
+    }
+
+
+    /* Booking */
+
+    .booking-section {
+        padding: 70px 20px;
+    }
+
+    .booking-content h2 {
+        font-size: 32px;
+    }
+
+    .booking-form-card {
+        padding: 25px 20px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+
+        gap: 0;
+    }
+
+
+    /* Authentication */
+
+    .auth-container {
+        padding: 30px 20px;
+    }
+
+
+    /* Dashboard */
+
+    .dashboard {
+        padding: 50px 20px;
+    }
+
+    .dashboard-header h1 {
+        font-size: 30px;
+    }
+
+
+    /* Footer */
+
+    footer {
+        padding: 40px 20px;
+    }
+}
+

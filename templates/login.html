@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Mechanic on Time</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">🔧 <span>Mechanic</span> on Time</div>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/services">Services</a>
+            <a href="/booking">Book Mechanic</a>
+            <a href="/contact">Contact</a>
+            <a href="/login" class="login-btn">Login</a>
+        </nav>
+    </header>
+
+    <section class="auth-page">
+        <div class="auth-container">
+            <h1>🔧 Welcome Back</h1>
+            <p>Login to your Mechanic on Time account</p>
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div style="padding: 12px 16px; border-radius: 8px; margin-bottom: 20px; background: {% if category == 'success' %}#dcfce7; color: #166534{% else %}#fee2e2; color: #991b1b{% endif %};">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+            <form action="/login" method="POST">
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+
+                <div style="text-align: right; margin-bottom: 18px; margin-top: -8px;">
+                    <a href="/forgot-password" style="color: #f97316; font-size: 13px; font-weight: 600;">
+                        Forgot Password?
+                    </a>
+                </div>
+
+                <button type="submit" class="auth-button">🔑 Login</button>
+
+                <p class="auth-link">
+                    Don't have an account? <a href="/register">Register here</a>
+                </p>
+
+                <p class="auth-link" style="margin-top: 10px; font-size: 12px; color: #9ca3af;">
+                    <a href="/" style="color: #6b7280;">← Back to Home</a>
+                </p>
+
+            </form>
+        </div>
+    </section>
+
+</body>
+</html>

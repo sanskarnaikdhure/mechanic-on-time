@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmed | Mechanic on Time</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">🔧 <span>Mechanic</span> on Time</div>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/services">Services</a>
+            <a href="/booking">Book Mechanic</a>
+            <a href="/contact">Contact</a>
+            {% if session.get('user') %}
+                <a href="/dashboard">Dashboard</a>
+            {% else %}
+                <a href="/login" class="login-btn">Login</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <section class="auth-page">
+        <div class="auth-container" style="max-width: 600px; text-align: center;">
+            <div style="width: 100%; margin-bottom: 25px; border-radius: 16px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.08);">
+                <img
+                    src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Happy%20customer%20with%20professional%20mechanic%20shaking%20hands%20after%20successful%20car%20service%2C%20friendly%20auto%20service&image_size=landscape_16_9"
+                    alt="Successful service booking"
+                    style="width: 100%; display: block; aspect-ratio: 16 / 9; object-fit: cover;"
+                >
+            </div>
+            <div style="width: 90px; height: 90px; border-radius: 50%; background: #dcfce7; display: flex; align-items: center; justify-content: center; font-size: 48px; margin: 0 auto 25px;">
+                ✅
+            </div>
+
+            <h1 style="color: #166534; margin-bottom: 12px;">Booking Confirmed!</h1>
+            <p style="color: #6b7280; margin-bottom: 30px;">Your mechanic has been successfully booked.</p>
+
+            {% if booking %}
+                <div style="background: #f8fafc; border: 1px solid #e5e7eb; border-radius: 12px; padding: 25px; text-align: left; margin-bottom: 30px;">
+                    <h3 style="color: #111827; margin-bottom: 18px; font-size: 18px;">📋 Booking Details</h3>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+                        <div>
+                            <p style="font-size: 12px; color: #6b7280; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Booking ID</p>
+                            <p style="color: #111827; font-weight: 700;">#{{ booking.booking_id }}</p>
+                        </div>
+                        <div>
+                            <p style="font-size: 12px; color: #6b7280; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Service</p>
+                            <p style="color: #111827; font-weight: 700;">{{ booking.service }}</p>
+                        </div>
+                        <div>
+                            <p style="font-size: 12px; color: #6b7280; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Date</p>
+                            <p style="color: #111827;">{{ booking.date }}</p>
+                        </div>
+                        <div>
+                            <p style="font-size: 12px; color: #6b7280; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Time</p>
+                            <p style="color: #111827;">{{ booking.time }}</p>
+                        </div>
+                        <div>
+                            <p style="font-size: 12px; color: #6b7280; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Vehicle</p>
+                            <p style="color: #111827;">{{ booking.vehicle }}</p>
+                        </div>
+                        <div>
+                            <p style="font-size: 12px; color: #6b7280; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Vehicle No.</p>
+                            <p style="color: #111827;">{{ booking.vehicle_number }}</p>
+                        </div>
+                        <div style="grid-column: 1 / -1;">
+                            <p style="font-size: 12px; color: #6b7280; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Location</p>
+                            <p style="color: #111827;">📍 {{ booking.location }}</p>
+                        </div>
+                    </div>
+
+            <div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid #e5e7eb;">
+                        <p style="font-size: 12px; color: #6b7280; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">Status</p>
+                        <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                            <span style="padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 700; background: #fef9c3; color: #854d0e;">
+                                ⏳ Pending Confirmation
+                            </span>
+                            {% if session.get('user') and booking %}
+                                <form method="POST" action="/cancel-booking/{{ booking.booking_id }}" onsubmit="return confirm('Are you sure you want to cancel booking {{ booking.booking_id }}? This action cannot be undone.');">
+                                    <button type="submit" style="padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700;
+                                        border: 1px solid #fecaca; background: #fef2f2; color: #dc2626;
+                                        cursor: pointer; transition: all 0.2s ease;">
+                                        ❌ Cancel Booking
+                                    </button>
+                                </form>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+
+            <p style="color: #6b7280; font-size: 14px; margin-bottom: 25px; line-height: 1.7;">
+                📧 A confirmation email has been sent to your email address.<br>
+                📞 Our team will contact you shortly to confirm the appointment.
+            </p>
+
+            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                {% if session.get('user') %}
+                    <a href="/dashboard" class="auth-button" style="text-decoration: none; flex: 1;">📊 View Dashboard</a>
+                {% endif %}
+                <a href="/booking" class="auth-button" style="text-decoration: none; flex: 1; background: #374151;">🔧 Book Another</a>
+                <a href="/" class="auth-button" style="text-decoration: none; flex: 1; background: #6b7280;">🏠 Go Home</a>
+            </div>
+
+        </div>
+    </section>
+
+</body>
+</html>
